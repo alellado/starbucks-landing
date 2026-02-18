@@ -124,36 +124,11 @@ h1 {
   background: rgba(244, 237, 230, 0.16);
 }
 
-.widget-section {
-  background: linear-gradient(135deg, var(--panel) 0%, var(--panel-soft) 100%);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: clamp(20px, 4vw, 36px);
-  display: grid;
-  gap: 18px;
-}
-
-.widget-copy h2 {
-  margin: 0 0 8px;
-  font-size: clamp(1.4rem, 3vw, 2.1rem);
-}
-
-.widget-copy p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.6;
-}
-
-.widget-shell {
-  min-height: 180px;
-  border-radius: 14px;
-  border: 1px dashed rgba(255, 255, 255, 0.35);
-  background: rgba(0, 0, 0, 0.2);
-  padding: 16px;
-}
-
-#elevenlabs-widget-mount {
-  min-height: 140px;
+.voice-widget {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 40;
 }
 
 .footer-note {

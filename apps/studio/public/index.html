@@ -27,25 +27,8 @@
             voz dentro de una landing elegante y lista para producción.
           </p>
           <div class="cta-row">
-            <a class="btn btn-primary" href="#elevenlabs-widget">Probar demo</a>
+            <a class="btn btn-primary" href="#contacto">Probar demo</a>
             <a class="btn btn-secondary" href="#contacto">Hablar con ventas</a>
-          </div>
-        </div>
-      </section>
-
-      <section id="elevenlabs-widget" class="widget-section">
-        <div class="widget-copy">
-          <h2>Widget de ElevenLabs</h2>
-          <p>
-            Este bloque ya está listo para incrustar tu agente. Pega el script
-            oficial de ElevenLabs justo debajo y se renderizará aquí.
-          </p>
-        </div>
-        <div class="widget-shell">
-          <div id="elevenlabs-widget-mount">
-            <elevenlabs-convai
-              agent-id="agent_8101khpvfpy7fbkat8z5dv9nkg9z"
-            ></elevenlabs-convai>
           </div>
         </div>
       </section>
@@ -54,6 +37,10 @@
         <p>Desarrollado para campañas con estética cinematográfica y foco en conversión.</p>
       </section>
     </main>
+
+    <div class="voice-widget" aria-label="Asistente de voz">
+      <elevenlabs-convai agent-id="agent_8101khpvfpy7fbkat8z5dv9nkg9z"></elevenlabs-convai>
+    </div>
 
     <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
   </body>
