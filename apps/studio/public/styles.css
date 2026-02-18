@@ -114,6 +114,23 @@ h1 {
   transform: translateY(-1px);
 }
 
+.btn-gulia {
+  background: #f7f1f8;
+  color: #b0459f;
+  border: 1px solid rgba(176, 69, 159, 0.45);
+  font-family: "Baskerville", "Times New Roman", serif;
+  font-weight: 700;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  letter-spacing: 0.02em;
+  box-shadow: 0 10px 24px rgba(91, 25, 84, 0.35);
+}
+
+.btn-gulia:hover {
+  background: #fff9ff;
+  color: #9f2f8f;
+  transform: translateY(-1px);
+}
+
 .btn-secondary {
   background: rgba(244, 237, 230, 0.08);
   color: var(--text);
