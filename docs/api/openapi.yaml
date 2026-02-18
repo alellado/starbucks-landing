@@ -1,0 +1,578 @@
+openapi: 3.1.0
+info:
+  title: AI-native CMS API
+  version: 0.2.0
+servers:
+  - url: http://localhost:3001
+paths:
+  /v1/intents:
+    get:
+      summary: List intents
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+        - in: query
+          name: cursor
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Intent list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntentListResponse'
+    post:
+      summary: Create editorial intent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateIntentRequest'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Intent'
+
+  /v1/documents:
+    get:
+      summary: List documents
+      parameters:
+        - in: query
+          name: status
+          schema:
+            type: string
+            enum: [draft, in_review, approved, published, archived]
+        - in: query
+          name: search
+          schema:
+            type: string
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+        - in: query
+          name: cursor
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Document list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentListResponse'
+    post:
+      summary: Create document linked to intent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDocumentRequest'
+      responses:
+        '201':
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+
+  /v1/documents/{documentId}:
+    get:
+      summary: Get document detail
+      parameters:
+        - in: path
+          name: documentId
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Document detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentDetail'
+
+  /v1/documents/{documentId}/generate:
+    post:
+      summary: Trigger AI generation for a new version
+      parameters:
+        - in: path
+          name: documentId
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GenerateRequest'
+      responses:
+        '202':
+          description: Generation queued
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobWrap'
+
+  /v1/documents/{documentId}/versions:
+    get:
+      summary: List versions of a document with latest policy report
+      parameters:
+        - in: path
+          name: documentId
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+        - in: query
+          name: cursor
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Versions list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentVersionsResponse'
+
+  /v1/documents/{documentId}/publications:
+    get:
+      summary: List publications of a document by recency
+      parameters:
+        - in: path
+          name: documentId
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - in: query
+          name: channel
+          schema:
+            type: string
+            enum: [web, app, newsletter, social]
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+        - in: query
+          name: cursor
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Publications list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentPublicationsResponse'
+
+  /v1/jobs:
+    get:
+      summary: List jobs
+      parameters:
+        - in: query
+          name: status
+          schema:
+            type: string
+            enum: [queued, running, succeeded, failed]
+        - in: query
+          name: type
+          schema:
+            type: string
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 100
+            default: 20
+        - in: query
+          name: cursor
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Job list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobListResponse'
+
+  /v1/jobs/{jobId}:
+    get:
+      summary: Get job status and result
+      parameters:
+        - in: path
+          name: jobId
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Job detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobDetail'
+
+  /v1/versions/{versionId}:
+    get:
+      summary: Get version detail
+      parameters:
+        - in: path
+          name: versionId
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Version detail
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VersionDetail'
+
+  /v1/versions/{versionId}/validate:
+    post:
+      summary: Validate a version with policy engine
+      parameters:
+        - in: path
+          name: versionId
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Validation report
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PolicyReport'
+
+  /v1/versions/{versionId}/publish:
+    post:
+      summary: Publish a version to a channel
+      parameters:
+        - in: path
+          name: versionId
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PublishRequest'
+      responses:
+        '201':
+          description: Publication created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Publication'
+        '409':
+          description: Publication blocked by policy findings
+
+components:
+  schemas:
+    CreateIntentRequest:
+      type: object
+      required: [title, objective, audience, tone]
+      properties:
+        title: { type: string }
+        objective: { type: string }
+        audience: { type: string }
+        tone: { type: string }
+        constraints:
+          type: object
+          additionalProperties: true
+
+    CreateDocumentRequest:
+      type: object
+      required: [title]
+      properties:
+        title: { type: string }
+        intentId:
+          type: string
+          format: uuid
+
+    GenerateRequest:
+      type: object
+      properties:
+        mode:
+          type: string
+          enum: [draft, rewrite, expand, shorten]
+          default: draft
+        instructions:
+          type: string
+
+    PublishRequest:
+      type: object
+      required: [channel]
+      properties:
+        channel:
+          type: string
+          enum: [web, app, newsletter, social]
+        variantKey:
+          type: string
+          default: default
+        externalRef:
+          type: string
+        force:
+          type: boolean
+          default: false
+
+    Intent:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        title: { type: string }
+        objective: { type: string }
+        audience: { type: string }
+        tone: { type: string }
+        createdAt: { type: string, format: date-time }
+
+    IntentListResponse:
+      type: object
+      properties:
+        intents:
+          type: array
+          items:
+            $ref: '#/components/schemas/Intent'
+        nextCursor:
+          type: string
+          nullable: true
+
+    Document:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        title: { type: string }
+        status: { type: string }
+        intentId: { type: string, format: uuid, nullable: true }
+        currentVersionId: { type: string, format: uuid, nullable: true }
+
+    DocumentListResponse:
+      type: object
+      properties:
+        documents:
+          type: array
+          items:
+            allOf:
+              - $ref: '#/components/schemas/Document'
+              - type: object
+                properties:
+                  createdAt: { type: string, format: date-time }
+        nextCursor:
+          type: string
+          nullable: true
+
+    DocumentDetail:
+      allOf:
+        - $ref: '#/components/schemas/Document'
+        - type: object
+          properties:
+            createdAt: { type: string, format: date-time }
+            currentVersion:
+              type: object
+              nullable: true
+              properties:
+                id: { type: string, format: uuid }
+                versionNumber: { type: integer, nullable: true }
+                changeSummary: { type: string, nullable: true }
+
+    Job:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        jobType: { type: string }
+        status: { type: string }
+        createdAt: { type: string, format: date-time }
+
+    JobWrap:
+      type: object
+      properties:
+        job:
+          $ref: '#/components/schemas/Job'
+
+    JobListResponse:
+      type: object
+      properties:
+        jobs:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string, format: uuid }
+              jobType: { type: string }
+              status: { type: string }
+              createdAt: { type: string, format: date-time }
+              updatedAt: { type: string, format: date-time }
+              result:
+                type: object
+                additionalProperties: true
+                nullable: true
+              error:
+                type: object
+                additionalProperties: true
+                nullable: true
+        nextCursor:
+          type: string
+          nullable: true
+
+    JobDetail:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        jobType: { type: string }
+        status: { type: string }
+        payload:
+          type: object
+          additionalProperties: true
+        result:
+          type: object
+          additionalProperties: true
+          nullable: true
+        error:
+          type: object
+          additionalProperties: true
+          nullable: true
+        createdAt: { type: string, format: date-time }
+        updatedAt: { type: string, format: date-time }
+
+    PolicyFinding:
+      type: object
+      properties:
+        code: { type: string }
+        message: { type: string }
+        severity: { type: string }
+
+    PolicyReport:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        score: { type: number }
+        blockingIssues: { type: integer }
+        createdAt: { type: string, format: date-time }
+        findings:
+          type: array
+          items:
+            $ref: '#/components/schemas/PolicyFinding'
+
+    DocumentVersionsResponse:
+      type: object
+      properties:
+        documentId: { type: string, format: uuid }
+        nextCursor: { type: string, nullable: true }
+        versions:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string, format: uuid }
+              versionNumber: { type: integer }
+              changeSummary: { type: string }
+              createdAt: { type: string, format: date-time }
+              latestPolicyReport:
+                type: object
+                nullable: true
+                properties:
+                  id: { type: string, format: uuid }
+                  score: { type: number, nullable: true }
+                  blockingIssues: { type: integer, nullable: true }
+                  createdAt: { type: string, format: date-time, nullable: true }
+
+    VersionDetail:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        documentId: { type: string, format: uuid }
+        versionNumber: { type: integer }
+        graph:
+          type: object
+          additionalProperties: true
+        plainText: { type: string }
+        changeSummary: { type: string }
+        createdAt: { type: string, format: date-time }
+        latestPolicyReport:
+          type: object
+          nullable: true
+          properties:
+            id: { type: string, format: uuid }
+            score: { type: number, nullable: true }
+            blockingIssues: { type: integer, nullable: true }
+            findings:
+              type: array
+              items:
+                $ref: '#/components/schemas/PolicyFinding'
+
+    DocumentPublicationsResponse:
+      type: object
+      properties:
+        documentId: { type: string, format: uuid }
+        nextCursor: { type: string, nullable: true }
+        publications:
+          type: array
+          items:
+            type: object
+            properties:
+              id: { type: string, format: uuid }
+              channel: { type: string }
+              variantKey: { type: string }
+              externalRef: { type: string, nullable: true }
+              publishedAt: { type: string, format: date-time, nullable: true }
+              createdAt: { type: string, format: date-time }
+              version:
+                type: object
+                properties:
+                  id: { type: string, format: uuid }
+                  versionNumber: { type: integer }
+              latestPolicyReport:
+                type: object
+                nullable: true
+                properties:
+                  id: { type: string, format: uuid }
+                  score: { type: number, nullable: true }
+                  blockingIssues: { type: integer, nullable: true }
+
+    Publication:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        channel: { type: string }
+        variantKey: { type: string }
+        publishedAt: { type: string, format: date-time }

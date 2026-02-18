@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Starbucks Voice Landing</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="landing">
+      <section class="hero">
+        <video
+          class="hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+        >
+          <source src="/assets/starbucks-hero.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Starbucks Experience</p>
+          <h1>Tu marca, ahora con voz conversacional</h1>
+          <p class="subtitle">
+            Crea una experiencia premium para tus clientes con interacción por
+            voz dentro de una landing elegante y lista para producción.
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#elevenlabs-widget">Probar demo</a>
+            <a class="btn btn-secondary" href="#contacto">Hablar con ventas</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="elevenlabs-widget" class="widget-section">
+        <div class="widget-copy">
+          <h2>Widget de ElevenLabs</h2>
+          <p>
+            Este bloque ya está listo para incrustar tu agente. Pega el script
+            oficial de ElevenLabs justo debajo y se renderizará aquí.
+          </p>
+        </div>
+        <div class="widget-shell">
+          <div id="elevenlabs-widget-mount"></div>
+        </div>
+      </section>
+
+      <section id="contacto" class="footer-note">
+        <p>Desarrollado para campañas con estética cinematográfica y foco en conversión.</p>
+      </section>
+    </main>
+
+    <!-- Reemplaza este bloque por tu snippet oficial de ElevenLabs -->
+    <!--
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+    <elevenlabs-convai agent-id="TU_AGENT_ID"></elevenlabs-convai>
+    -->
+  </body>
+</html>

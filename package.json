@@ -1,0 +1,13 @@
+{
+  "name": "ai-native-cms",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev": "echo \"Run: pnpm dev:api and pnpm dev:studio; plus both python services\"",
+    "dev:api": "pnpm --filter @cms/api dev",
+    "dev:studio": "pnpm --filter @cms/studio dev",
+    "lint": "echo \"Add linters per package\"",
+    "test": "echo \"Add tests per package\""
+  }
+}

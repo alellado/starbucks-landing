@@ -1,0 +1,9 @@
+node_modules
+.pnpm-store
+dist
+.env
+*.log
+__pycache__
+.pycache
+.pytest_cache
+.venv

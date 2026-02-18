@@ -1,0 +1,180 @@
+:root {
+  --bg: #0f0b08;
+  --panel: #201611;
+  --panel-soft: #2d1e18;
+  --text: #f4ede6;
+  --muted: #d7cabf;
+  --brand: #00754a;
+  --brand-hover: #0a8f5d;
+  --line: #4b3428;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  background: radial-gradient(circle at 20% 20%, #2c1b15 0%, var(--bg) 46%, #0b0908 100%);
+  color: var(--text);
+}
+
+.landing {
+  width: min(1120px, 92vw);
+  margin: 0 auto;
+  padding: 30px 0 48px;
+  display: grid;
+  gap: 24px;
+}
+
+.hero {
+  position: relative;
+  min-height: 72vh;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  overflow: hidden;
+  isolation: isolate;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.45);
+}
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(8, 7, 6, 0.88) 16%, rgba(8, 7, 6, 0.45) 58%, rgba(8, 7, 6, 0.82) 100%),
+    linear-gradient(to top, rgba(8, 7, 6, 0.78) 6%, rgba(8, 7, 6, 0) 48%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 630px;
+  padding: clamp(24px, 7vw, 72px);
+  animation: rise 0.8s ease-out both;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 4.3rem);
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.subtitle {
+  margin: 18px 0 0;
+  font-size: clamp(1rem, 2.2vw, 1.24rem);
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+.cta-row {
+  margin-top: 28px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 13px 20px;
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: var(--brand-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: rgba(244, 237, 230, 0.08);
+  color: var(--text);
+  border: 1px solid rgba(244, 237, 230, 0.22);
+}
+
+.btn-secondary:hover {
+  background: rgba(244, 237, 230, 0.16);
+}
+
+.widget-section {
+  background: linear-gradient(135deg, var(--panel) 0%, var(--panel-soft) 100%);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: clamp(20px, 4vw, 36px);
+  display: grid;
+  gap: 18px;
+}
+
+.widget-copy h2 {
+  margin: 0 0 8px;
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+}
+
+.widget-copy p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.widget-shell {
+  min-height: 180px;
+  border-radius: 14px;
+  border: 1px dashed rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 16px;
+}
+
+#elevenlabs-widget-mount {
+  min-height: 140px;
+}
+
+.footer-note {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 780px) {
+  .hero {
+    min-height: 62vh;
+  }
+}
