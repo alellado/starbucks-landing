@@ -1,0 +1,105 @@
+home_team,away_team,match_date,stage,city,venue,status
+Mexico,South Africa,2026-06-11T21:00:00.000Z,Group Stage,Mexico City,Estadio Azteca,scheduled
+South Korea,Winner UEFA Playoff D,2026-06-12T04:00:00.000Z,Group Stage,Guadalajara,Estadio Akron,scheduled
+Canada,Winner UEFA Playoff A,2026-06-12T19:00:00.000Z,Group Stage,Toronto,BMO Field,scheduled
+USA,Paraguay,2026-06-13T04:00:00.000Z,Group Stage,Los Angeles,SoFi Stadium,scheduled
+Qatar,Switzerland,2026-06-13T22:00:00.000Z,Group Stage,San Francisco Bay Area,Levi's Stadium,scheduled
+Brazil,Morocco,2026-06-13T22:00:00.000Z,Group Stage,New York/New Jersey,MetLife Stadium,scheduled
+Haiti,Scotland,2026-06-14T01:00:00.000Z,Group Stage,Boston,Gillette Stadium,scheduled
+Australia,Winner UEFA Playoff C,2026-06-14T07:00:00.000Z,Group Stage,Vancouver,BC Place,scheduled
+Germany,Curaçao,2026-06-14T18:00:00.000Z,Group Stage,Houston,NRG Stadium,scheduled
+Netherlands,Japan,2026-06-14T21:00:00.000Z,Group Stage,Dallas,AT&T Stadium,scheduled
+Côte d'Ivoire,Ecuador,2026-06-14T23:00:00.000Z,Group Stage,Philadelphia,Lincoln Financial Field,scheduled
+Winner UEFA Playoff B,Tunisia,2026-06-15T04:00:00.000Z,Group Stage,Monterrey,Estadio BBVA,scheduled
+Spain,Cabo Verde,2026-06-15T16:00:00.000Z,Group Stage,Atlanta,Mercedes-Benz Stadium,scheduled
+Belgium,Egypt,2026-06-15T22:00:00.000Z,Group Stage,Seattle,Lumen Field,scheduled
+Saudi Arabia,Uruguay,2026-06-15T22:00:00.000Z,Group Stage,Miami,Hard Rock Stadium,scheduled
+IR Iran,New Zealand,2026-06-16T04:00:00.000Z,Group Stage,Los Angeles,SoFi Stadium,scheduled
+France,Senegal,2026-06-16T19:00:00.000Z,Group Stage,New York/New Jersey,MetLife Stadium,scheduled
+Winner FIFA Playoff 2,Norway,2026-06-16T22:00:00.000Z,Group Stage,Boston,Gillette Stadium,scheduled
+Argentina,Algeria,2026-06-17T02:00:00.000Z,Group Stage,Kansas City,Arrowhead Stadium,scheduled
+Austria,Jordan,2026-06-17T07:00:00.000Z,Group Stage,San Francisco Bay Area,Levi's Stadium,scheduled
+Portugal,Winner FIFA Playoff 1,2026-06-17T18:00:00.000Z,Group Stage,Houston,NRG Stadium,scheduled
+England,Croatia,2026-06-17T21:00:00.000Z,Group Stage,Dallas,AT&T Stadium,scheduled
+Ghana,Panama,2026-06-17T23:00:00.000Z,Group Stage,Toronto,BMO Field,scheduled
+Uzbekistan,Colombia,2026-06-18T04:00:00.000Z,Group Stage,Mexico City,Estadio Azteca,scheduled
+Winner UEFA Playoff D,South Africa,2026-06-18T16:00:00.000Z,Group Stage,Atlanta,Mercedes-Benz Stadium,scheduled
+Switzerland,Winner UEFA Playoff A,2026-06-18T22:00:00.000Z,Group Stage,Los Angeles,SoFi Stadium,scheduled
+Canada,Qatar,2026-06-19T01:00:00.000Z,Group Stage,Vancouver,BC Place,scheduled
+Mexico,South Korea,2026-06-19T03:00:00.000Z,Group Stage,Guadalajara,Estadio Akron,scheduled
+USA,Australia,2026-06-19T22:00:00.000Z,Group Stage,Seattle,Lumen Field,scheduled
+Scotland,Morocco,2026-06-19T22:00:00.000Z,Group Stage,Boston,Gillette Stadium,scheduled
+Brazil,Haiti,2026-06-20T01:00:00.000Z,Group Stage,Philadelphia,Lincoln Financial Field,scheduled
+Winner UEFA Playoff C,Paraguay,2026-06-20T07:00:00.000Z,Group Stage,San Francisco Bay Area,Levi's Stadium,scheduled
+Netherlands,Winner UEFA Playoff B,2026-06-20T18:00:00.000Z,Group Stage,Houston,NRG Stadium,scheduled
+Germany,Côte d'Ivoire,2026-06-20T20:00:00.000Z,Group Stage,Toronto,BMO Field,scheduled
+Ecuador,Curaçao,2026-06-21T01:00:00.000Z,Group Stage,Kansas City,Arrowhead Stadium,scheduled
+Tunisia,Japan,2026-06-21T06:00:00.000Z,Group Stage,Monterrey,Estadio BBVA,scheduled
+Spain,Saudi Arabia,2026-06-21T16:00:00.000Z,Group Stage,Atlanta,Mercedes-Benz Stadium,scheduled
+Belgium,IR Iran,2026-06-21T22:00:00.000Z,Group Stage,Los Angeles,SoFi Stadium,scheduled
+Uruguay,Cabo Verde,2026-06-21T22:00:00.000Z,Group Stage,Miami,Hard Rock Stadium,scheduled
+New Zealand,Egypt,2026-06-22T04:00:00.000Z,Group Stage,Vancouver,BC Place,scheduled
+Argentina,Austria,2026-06-22T18:00:00.000Z,Group Stage,Dallas,AT&T Stadium,scheduled
+France,Winner FIFA Playoff 2,2026-06-22T21:00:00.000Z,Group Stage,Philadelphia,Lincoln Financial Field,scheduled
+Norway,Senegal,2026-06-23T00:00:00.000Z,Group Stage,New York/New Jersey,MetLife Stadium,scheduled
+Jordan,Algeria,2026-06-23T06:00:00.000Z,Group Stage,San Francisco Bay Area,Levi's Stadium,scheduled
+Portugal,Uzbekistan,2026-06-23T18:00:00.000Z,Group Stage,Houston,NRG Stadium,scheduled
+England,Ghana,2026-06-23T20:00:00.000Z,Group Stage,Boston,Gillette Stadium,scheduled
+Panama,Croatia,2026-06-23T23:00:00.000Z,Group Stage,Toronto,BMO Field,scheduled
+Colombia,Winner FIFA Playoff 1,2026-06-24T04:00:00.000Z,Group Stage,Guadalajara,Estadio Akron,scheduled
+Switzerland,Canada,2026-06-24T22:00:00.000Z,Group Stage,Vancouver,BC Place,scheduled
+Winner UEFA Playoff A,Qatar,2026-06-24T22:00:00.000Z,Group Stage,Seattle,Lumen Field,scheduled
+Scotland,Brazil,2026-06-24T22:00:00.000Z,Group Stage,Miami,Hard Rock Stadium,scheduled
+Morocco,Haiti,2026-06-24T22:00:00.000Z,Group Stage,Atlanta,Mercedes-Benz Stadium,scheduled
+Winner UEFA Playoff D,Mexico,2026-06-25T03:00:00.000Z,Group Stage,Mexico City,Estadio Azteca,scheduled
+South Africa,South Korea,2026-06-25T03:00:00.000Z,Group Stage,Monterrey,Estadio BBVA,scheduled
+Curaçao,Côte d'Ivoire,2026-06-25T20:00:00.000Z,Group Stage,Philadelphia,Lincoln Financial Field,scheduled
+Ecuador,Germany,2026-06-25T20:00:00.000Z,Group Stage,New York/New Jersey,MetLife Stadium,scheduled
+Japan,Winner UEFA Playoff B,2026-06-26T00:00:00.000Z,Group Stage,Dallas,AT&T Stadium,scheduled
+Tunisia,Netherlands,2026-06-26T00:00:00.000Z,Group Stage,Kansas City,Arrowhead Stadium,scheduled
+Winner UEFA Playoff C,USA,2026-06-26T05:00:00.000Z,Group Stage,Los Angeles,SoFi Stadium,scheduled
+Paraguay,Australia,2026-06-26T05:00:00.000Z,Group Stage,San Francisco Bay Area,Levi's Stadium,scheduled
+Norway,France,2026-06-26T19:00:00.000Z,Group Stage,Boston,Gillette Stadium,scheduled
+Senegal,Winner FIFA Playoff 2,2026-06-26T19:00:00.000Z,Group Stage,Toronto,BMO Field,scheduled
+Cabo Verde,Saudi Arabia,2026-06-27T01:00:00.000Z,Group Stage,Houston,NRG Stadium,scheduled
+Uruguay,Spain,2026-06-27T02:00:00.000Z,Group Stage,Guadalajara,Estadio Akron,scheduled
+Egypt,IR Iran,2026-06-27T06:00:00.000Z,Group Stage,Seattle,Lumen Field,scheduled
+New Zealand,Belgium,2026-06-27T06:00:00.000Z,Group Stage,Vancouver,BC Place,scheduled
+Panama,England,2026-06-27T21:00:00.000Z,Group Stage,New York/New Jersey,MetLife Stadium,scheduled
+Croatia,Ghana,2026-06-27T21:00:00.000Z,Group Stage,Philadelphia,Lincoln Financial Field,scheduled
+Colombia,Portugal,2026-06-27T23:30:00.000Z,Group Stage,Miami,Hard Rock Stadium,scheduled
+Winner FIFA Playoff 1,Uzbekistan,2026-06-27T23:30:00.000Z,Group Stage,Atlanta,Mercedes-Benz Stadium,scheduled
+Algeria,Austria,2026-06-28T03:00:00.000Z,Group Stage,Kansas City,Arrowhead Stadium,scheduled
+Jordan,Argentina,2026-06-28T03:00:00.000Z,Group Stage,Dallas,AT&T Stadium,scheduled
+2A,2B,2026-06-28T22:00:00.000Z,Round of 32,Los Angeles,SoFi Stadium,scheduled
+1C,2F,2026-06-29T18:00:00.000Z,Round of 32,Houston,NRG Stadium,scheduled
+1E,3ABCDF,2026-06-29T20:30:00.000Z,Round of 32,Boston,Gillette Stadium,scheduled
+1F,2C,2026-06-30T03:00:00.000Z,Round of 32,Monterrey,Estadio BBVA,scheduled
+2E,2I,2026-06-30T18:00:00.000Z,Round of 32,Dallas,AT&T Stadium,scheduled
+1I,3CDFGH,2026-06-30T21:00:00.000Z,Round of 32,New York/New Jersey,MetLife Stadium,scheduled
+1A,3CEFHI,2026-07-01T03:00:00.000Z,Round of 32,Mexico City,Estadio Azteca,scheduled
+1L,3EHIJK,2026-07-01T16:00:00.000Z,Round of 32,Atlanta,Mercedes-Benz Stadium,scheduled
+1G,3AEHIJ,2026-07-01T23:00:00.000Z,Round of 32,Seattle,Lumen Field,scheduled
+1D,3BEFIJ,2026-07-02T03:00:00.000Z,Round of 32,San Francisco Bay Area,Levi's Stadium,scheduled
+1H,2J,2026-07-02T22:00:00.000Z,Round of 32,Los Angeles,SoFi Stadium,scheduled
+2K,2L,2026-07-02T23:00:00.000Z,Round of 32,Toronto,BMO Field,scheduled
+1B,3EFGIJ,2026-07-03T06:00:00.000Z,Round of 32,Vancouver,BC Place,scheduled
+2D,2G,2026-07-03T19:00:00.000Z,Round of 32,Dallas,AT&T Stadium,scheduled
+1J,2H,2026-07-03T22:00:00.000Z,Round of 32,Miami,Hard Rock Stadium,scheduled
+1K,3DEIJL,2026-07-04T02:30:00.000Z,Round of 32,Kansas City,Arrowhead Stadium,scheduled
+W73,W75,2026-07-04T18:00:00.000Z,Round of 16,Houston,NRG Stadium,scheduled
+W74,W77,2026-07-04T21:00:00.000Z,Round of 16,Philadelphia,Lincoln Financial Field,scheduled
+W76,W78,2026-07-05T20:00:00.000Z,Round of 16,New York/New Jersey,MetLife Stadium,scheduled
+W79,W80,2026-07-06T02:00:00.000Z,Round of 16,Mexico City,Estadio Azteca,scheduled
+W83,W84,2026-07-06T20:00:00.000Z,Round of 16,Dallas,AT&T Stadium,scheduled
+W81,W82,2026-07-07T03:00:00.000Z,Round of 16,Seattle,Lumen Field,scheduled
+W86,W88,2026-07-07T16:00:00.000Z,Round of 16,Atlanta,Mercedes-Benz Stadium,scheduled
+W85,W87,2026-07-07T23:00:00.000Z,Round of 16,Vancouver,BC Place,scheduled
+W89,W90,2026-07-09T20:00:00.000Z,Quarterfinals,Boston,Gillette Stadium,scheduled
+W93,W94,2026-07-10T22:00:00.000Z,Quarterfinals,Los Angeles,SoFi Stadium,scheduled
+W91,W92,2026-07-11T21:00:00.000Z,Quarterfinals,Miami,Hard Rock Stadium,scheduled
+W95,W100,2026-07-12T02:00:00.000Z,Quarterfinals,Kansas City,Arrowhead Stadium,scheduled
+W97,W98,2026-07-14T20:00:00.000Z,Semifinals,Dallas,AT&T Stadium,scheduled
+W99,W100,2026-07-15T19:00:00.000Z,Semifinals,Atlanta,Mercedes-Benz Stadium,scheduled
+RU101,RU102,2026-07-18T21:00:00.000Z,Third Place Playoff,Miami,Hard Rock Stadium,scheduled
+W101,W102,2026-07-19T19:00:00.000Z,Final,New York/New Jersey,MetLife Stadium,scheduled

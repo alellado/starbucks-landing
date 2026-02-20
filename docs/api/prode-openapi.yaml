@@ -1,0 +1,275 @@
+openapi: 3.0.3
+info:
+  title: Prode POS API
+  version: 1.0.0
+  description: FIFA World Cup 2026 prediction platform API
+servers:
+  - url: http://localhost:4100/api/v1
+paths:
+  /auth/register:
+    post:
+      summary: Register user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+      responses:
+        '201':
+          description: User created
+  /auth/login:
+    post:
+      summary: Login user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Authenticated
+  /tournaments:
+    get:
+      summary: List tournaments
+      responses:
+        '200':
+          description: List of tournaments
+  /tournaments/{tournamentId}/join:
+    post:
+      summary: Join tournament
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/TournamentId'
+      responses:
+        '200':
+          description: Joined
+  /tournaments/{tournamentId}/matches:
+    get:
+      summary: List tournament matches
+      parameters:
+        - $ref: '#/components/parameters/TournamentId'
+      responses:
+        '200':
+          description: Match list
+  /tournaments/{tournamentId}/leaderboard:
+    get:
+      summary: Tournament leaderboard
+      parameters:
+        - $ref: '#/components/parameters/TournamentId'
+      responses:
+        '200':
+          description: Ranking list
+  /predictions:
+    post:
+      summary: Create or update prediction
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PredictionRequest'
+      responses:
+        '200':
+          description: Prediction saved
+  /predictions/me:
+    get:
+      summary: List own predictions
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: tournamentId
+          required: false
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: User predictions
+  /admin/tournaments:
+    post:
+      summary: Create tournament (admin)
+      security:
+        - bearerAuth: []
+      responses:
+        '201':
+          description: Tournament created
+  /admin/tournaments/{tournamentId}/reset:
+    post:
+      summary: Reset tournament state (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - $ref: '#/components/parameters/TournamentId'
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetTournamentRequest'
+      responses:
+        '200':
+          description: Tournament reset summary
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResetTournamentResponse'
+  /admin/matches/bulk:
+    post:
+      summary: Bulk create matches (admin)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BulkMatchesRequest'
+      responses:
+        '201':
+          description: Matches inserted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkMatchesResponse'
+  /admin/matches/{matchId}/result:
+    patch:
+      summary: Set final result and recalculate points (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: matchId
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Result saved and scores recalculated
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    TournamentId:
+      in: path
+      name: tournamentId
+      required: true
+      schema:
+        type: string
+        format: uuid
+  schemas:
+    RegisterRequest:
+      type: object
+      required: [name, email, password]
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          minLength: 8
+    LoginRequest:
+      type: object
+      required: [email, password]
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+    PredictionRequest:
+      type: object
+      required: [matchId, predictedHome, predictedAway]
+      properties:
+        matchId:
+          type: string
+          format: uuid
+        predictedHome:
+          type: integer
+          minimum: 0
+        predictedAway:
+          type: integer
+          minimum: 0
+    BulkMatchesRequest:
+      type: object
+      required: [matches]
+      properties:
+        matches:
+          type: array
+          minItems: 1
+          items:
+            type: object
+            required: [tournamentId, homeTeam, awayTeam, matchDate, stage]
+            properties:
+              tournamentId:
+                type: string
+                format: uuid
+              homeTeam:
+                type: string
+              awayTeam:
+                type: string
+              matchDate:
+                type: string
+                format: date-time
+              stage:
+                type: string
+              city:
+                type: string
+              venue:
+                type: string
+              status:
+                type: string
+                enum: [scheduled, in_progress, finished, postponed, cancelled]
+    BulkMatchesResponse:
+      type: object
+      required: [inserted, updated]
+      properties:
+        inserted:
+          type: integer
+          minimum: 0
+        updated:
+          type: integer
+          minimum: 0
+    ResetTournamentRequest:
+      type: object
+      properties:
+        mode:
+          type: string
+          enum: [results_only, full]
+          default: full
+        clearParticipants:
+          type: boolean
+          default: false
+    ResetTournamentResponse:
+      type: object
+      required: [tournamentId, mode, predictionsDeleted, predictionPointsReset, matchesReset, participantsDeleted]
+      properties:
+        tournamentId:
+          type: string
+          format: uuid
+        mode:
+          type: string
+          enum: [results_only, full]
+        predictionsDeleted:
+          type: integer
+          minimum: 0
+        predictionPointsReset:
+          type: integer
+          minimum: 0
+        matchesReset:
+          type: integer
+          minimum: 0
+        participantsDeleted:
+          type: integer
+          minimum: 0

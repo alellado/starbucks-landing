@@ -2,11 +2,19 @@
   "name": "ai-native-cms",
   "private": true,
   "version": "0.1.0",
+  "engines": {
+    "node": ">=22 <23"
+  },
   "packageManager": "pnpm@9.0.0",
   "scripts": {
     "dev": "echo \"Run: pnpm dev:api and pnpm dev:studio; plus both python services\"",
     "dev:api": "pnpm --filter @cms/api dev",
     "dev:studio": "pnpm --filter @cms/studio dev",
+    "dev:prode-api": "pnpm --filter @prode/api dev",
+    "dev:prode-web": "pnpm --filter @prode/web dev",
+    "db:migrate:prode": "pnpm --filter @prode/api db:migrate",
+    "convert:fixtures": "node scripts/convert-archive-fixtures.mjs",
+    "import:fixtures": "node scripts/import-fixtures.mjs",
     "lint": "echo \"Add linters per package\"",
     "test": "echo \"Add tests per package\""
   }

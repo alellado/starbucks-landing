@@ -1,0 +1,54 @@
+version: "3.9"
+
+services:
+  prode-db:
+    image: postgres:16-alpine
+    container_name: prode-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: prode
+    ports:
+      - "5433:5432"
+    volumes:
+      - prode-db-data:/var/lib/postgresql/data
+      - ../db/prode_schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d prode"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  prode-api:
+    build:
+      context: ..
+      dockerfile: apps/prode-api/Dockerfile
+    container_name: prode-api
+    depends_on:
+      prode-db:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      API_PORT: 4100
+      DATABASE_URL: postgresql://postgres:postgres@prode-db:5432/prode
+      JWT_SECRET: change_this_for_production_32_chars_minimum
+      JWT_EXPIRES_IN: 7d
+      CORS_ORIGIN: http://localhost:3000
+    ports:
+      - "4100:4100"
+
+  prode-web:
+    build:
+      context: ..
+      dockerfile: apps/prode-web/Dockerfile
+    container_name: prode-web
+    depends_on:
+      - prode-api
+    environment:
+      NODE_ENV: production
+      NEXT_PUBLIC_API_URL: http://localhost:4100/api/v1
+    ports:
+      - "3000:3000"
+
+volumes:
+  prode-db-data:

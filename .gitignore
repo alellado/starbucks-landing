@@ -7,3 +7,9 @@ __pycache__
 .pycache
 .pytest_cache
 .venv
+.vercel
+.next
+.next-dev
+apps/prode-web/.vercel
+apps/prode-web/.next
+apps/prode-web/.next-dev
